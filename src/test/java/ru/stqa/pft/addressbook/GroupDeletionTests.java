@@ -1,19 +1,8 @@
 package ru.stqa.pft.addressbook;
 
-import org.openqa.selenium.firefox.FirefoxOptions;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
-import static org.testng.Assert.*;
 
-import java.util.concurrent.TimeUnit;
-import java.util.Date;
-import java.io.File;
-import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.*;
-import static org.openqa.selenium.OutputType.*;
 
 public class GroupDeletionTests extends TestBase {
     //FirefoxDriver wd;
@@ -34,20 +23,20 @@ public class GroupDeletionTests extends TestBase {
         wd.findElement(By.name("pass")).clear();
         wd.findElement(By.name("pass")).sendKeys("secret");
         wd.findElement(By.xpath("//form[@id='LoginForm']/input[3]")).click();*/
-        gotoGroupPage();
+        app.gotoGroupPage();
         selectGroup();
         deleteSelectedGroups();
         //wd.findElement(By.linkText("group page")).click();
-        gotoGroupPage();
+        app.gotoGroupPage();
     }
 
     private void deleteSelectedGroups() {
-        wd.findElement(By.name("delete")).click();
+        app.wd.findElement(By.name("delete")).click();
     }
 
     private void selectGroup() {
-        if (!wd.findElement(By.name("selected[]")).isSelected()) {
-            wd.findElement(By.name("selected[]")).click();
+        if (!app.wd.findElement(By.name("selected[]")).isSelected()) {
+            app.wd.findElement(By.name("selected[]")).click();
         }
     }
 

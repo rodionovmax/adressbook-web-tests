@@ -1,13 +1,7 @@
 package ru.stqa.pft.addressbook;
 
-import org.openqa.selenium.firefox.FirefoxOptions;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 
-import java.util.concurrent.TimeUnit;
-
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.*;
 
 public class ContactCreation extends TestBase {
@@ -35,7 +29,7 @@ public class ContactCreation extends TestBase {
     public void ContactCreation() {
 
         gotoContact();
-        fillContactForm(new ContactData("test Name", "test Lastname", "Senior developer", "Company", "1 Foxborough st", "(123)456-5678", "blank@fakemail.com", "blank.automation.com", "1990"));
+        fillContactForm(new ContactData("Mikhail", "Portnov", "Senior developer", "Company", "1 Foxborough st", "(123)456-5678", "blank@fakemail.com", "blank.automation.com", "1990"));
        // wd.findElement(By.name("theform")).click();
        // wd.findElement(By.name("address2")).click();
         submitContact();
@@ -43,52 +37,52 @@ public class ContactCreation extends TestBase {
     }
 
     private void fillContactForm(ContactData contactData) {
-        wd.findElement(By.name("firstname")).click();
-        wd.findElement(By.name("firstname")).clear();
-        wd.findElement(By.name("firstname")).sendKeys(contactData.getFirstname());
-        wd.findElement(By.name("lastname")).click();
-        wd.findElement(By.name("lastname")).clear();
-        wd.findElement(By.name("lastname")).sendKeys(contactData.getLastname());
-        wd.findElement(By.name("nickname")).click();
-        wd.findElement(By.name("title")).click();
-        wd.findElement(By.name("title")).clear();
-        wd.findElement(By.name("title")).sendKeys(contactData.getTitle());
-        wd.findElement(By.name("company")).click();
-        wd.findElement(By.name("company")).clear();
-        wd.findElement(By.name("company")).sendKeys(contactData.getCompany_name());
-        wd.findElement(By.name("address")).click();
-        wd.findElement(By.name("address")).clear();
-        wd.findElement(By.name("address")).sendKeys(contactData.getFirst_address());
+        app.wd.findElement(By.name("firstname")).click();
+        app.wd.findElement(By.name("firstname")).clear();
+        app.wd.findElement(By.name("firstname")).sendKeys(contactData.getFirstname());
+        app.wd.findElement(By.name("lastname")).click();
+        app.wd.findElement(By.name("lastname")).clear();
+        app.wd.findElement(By.name("lastname")).sendKeys(contactData.getLastname());
+        app.wd.findElement(By.name("nickname")).click();
+        app.wd.findElement(By.name("title")).click();
+        app.wd.findElement(By.name("title")).clear();
+        app.wd.findElement(By.name("title")).sendKeys(contactData.getTitle());
+        app.wd.findElement(By.name("company")).click();
+        app.wd.findElement(By.name("company")).clear();
+        app.wd.findElement(By.name("company")).sendKeys(contactData.getCompany_name());
+        app.wd.findElement(By.name("address")).click();
+        app.wd.findElement(By.name("address")).clear();
+        app.wd.findElement(By.name("address")).sendKeys(contactData.getFirst_address());
         //wd.findElement(By.name("address")).click();
         //wd.findElement(By.name("address")).click();
         //wd.findElement(By.name("address")).clear();
         //wd.findElement(By.name("address")).sendKeys("1 Foxborough st");
-        wd.findElement(By.name("home")).click();
-        wd.findElement(By.name("home")).clear();
-        wd.findElement(By.name("home")).sendKeys(contactData.getHomephone());
-        wd.findElement(By.name("email")).click();
-        wd.findElement(By.name("email")).clear();
-        wd.findElement(By.name("email")).sendKeys(contactData.getEmail());
-        wd.findElement(By.name("homepage")).click();
-        wd.findElement(By.name("homepage")).clear();
-        wd.findElement(By.name("homepage")).sendKeys(contactData.getWebsite());
-        if (!wd.findElement(By.xpath("//div[@id='content']/form/select[1]//option[3]")).isSelected()) {
-            wd.findElement(By.xpath("//div[@id='content']/form/select[1]//option[3]")).click();
+        app.wd.findElement(By.name("home")).click();
+        app.wd.findElement(By.name("home")).clear();
+        app.wd.findElement(By.name("home")).sendKeys(contactData.getHomephone());
+        app.wd.findElement(By.name("email")).click();
+        app.wd.findElement(By.name("email")).clear();
+        app.wd.findElement(By.name("email")).sendKeys(contactData.getEmail());
+        app.wd.findElement(By.name("homepage")).click();
+        app.wd.findElement(By.name("homepage")).clear();
+        app.wd.findElement(By.name("homepage")).sendKeys(contactData.getWebsite());
+        if (!app.wd.findElement(By.xpath("//div[@id='content']/form/select[1]//option[3]")).isSelected()) {
+            app.wd.findElement(By.xpath("//div[@id='content']/form/select[1]//option[3]")).click();
         }
-        if (!wd.findElement(By.xpath("//div[@id='content']/form/select[2]//option[2]")).isSelected()) {
-            wd.findElement(By.xpath("//div[@id='content']/form/select[2]//option[2]")).click();
+        if (!app.wd.findElement(By.xpath("//div[@id='content']/form/select[2]//option[2]")).isSelected()) {
+            app.wd.findElement(By.xpath("//div[@id='content']/form/select[2]//option[2]")).click();
         }
-        wd.findElement(By.name("byear")).click();
-        wd.findElement(By.name("byear")).clear();
-        wd.findElement(By.name("byear")).sendKeys(contactData.getBirth_year());
+        app.wd.findElement(By.name("byear")).click();
+        app.wd.findElement(By.name("byear")).clear();
+        app.wd.findElement(By.name("byear")).sendKeys(contactData.getBirth_year());
     }
 
     private void submitContact() {
-        wd.findElement(By.xpath("//div[@id='content']/form/input[21]")).click();
+        app.wd.findElement(By.xpath("//div[@id='content']/form/input[21]")).click();
     }
 
     private void gotoContact() {
-        wd.findElement(By.linkText("add new")).click();
+        app.wd.findElement(By.linkText("add new")).click();
     }
 
     /*@AfterMethod
