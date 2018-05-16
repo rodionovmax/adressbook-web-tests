@@ -1,5 +1,5 @@
 //package com.example.tests;
-package ru.stqa.pft.addressbook;
+package ru.stqa.pft.addressbook.tests;
 
 import java.util.regex.Pattern;
 import java.util.concurrent.TimeUnit;
