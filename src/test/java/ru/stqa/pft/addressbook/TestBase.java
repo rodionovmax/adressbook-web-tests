@@ -1,5 +1,6 @@
 package ru.stqa.pft.addressbook;
 
+import org.openqa.selenium.By;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
@@ -22,4 +23,6 @@ public class TestBase {
   public ApplicationManager getApp() {
     return app;
   }
+
+
 }
