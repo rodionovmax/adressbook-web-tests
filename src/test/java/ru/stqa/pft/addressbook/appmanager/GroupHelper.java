@@ -6,7 +6,7 @@ import ru.stqa.pft.addressbook.GroupData;
 
 public class GroupHelper {
 
-  private FirefoxDriver wd;
+  FirefoxDriver wd;
 
   public GroupHelper(FirefoxDriver wd) {
     this.wd = wd;
@@ -40,5 +40,29 @@ public class GroupHelper {
 
   public void deleteSelectedGroups() {
     wd.findElement(By.name("delete")).click();
+  }
+
+  public void returnToGroupPage() {
+    wd.findElement(By.linkText("group page")).click();
+  }
+
+  public void editGroupCreation() {
+    wd.findElement(By.name("update")).click();
+  }
+
+  public void changeGroupForm() {
+    wd.findElement(By.name("group_name")).click();
+    wd.findElement(By.name("group_name")).clear();
+    wd.findElement(By.name("group_name")).sendKeys("test created for EXTRA 2018");
+    wd.findElement(By.name("group_header")).click();
+    wd.findElement(By.name("group_header")).clear();
+    wd.findElement(By.name("group_header")).sendKeys("Group for repeaters");
+    wd.findElement(By.name("group_footer")).click();
+    wd.findElement(By.name("group_footer")).clear();
+    wd.findElement(By.name("group_footer")).sendKeys("Have a good testing");
+  }
+
+  public void clickEditGroup() {
+    wd.findElement(By.name("edit")).click();
   }
 }
