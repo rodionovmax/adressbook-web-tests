@@ -1,15 +1,35 @@
-//package com.example.tests;
+/*package ru.stqa.pft.addressbook.tests;
+
+import org.testng.annotations.Test;
+
+public class ContactDeletionFromContactPage extends TestBase {
+
+  private boolean acceptNextAlert = true;
+  private StringBuffer verificationErrors = new StringBuffer();
+
+  @Test
+  public void testContactDeletion7()  {
+
+    app.getContactHelper().chooseContactToDelete();
+    app.getContactHelper().clickDeleteContactIcon();
+    app.getContactHelper().deleteContactConfirmation();
+  }
+
+}*/
+
 package ru.stqa.pft.addressbook.tests;
 
-import java.util.regex.Pattern;
-import java.util.concurrent.TimeUnit;
-
-import org.openqa.selenium.firefox.FirefoxOptions;
-import org.testng.annotations.*;
-import static org.testng.Assert.*;
 import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.firefox.FirefoxOptions;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
+
+import java.util.concurrent.TimeUnit;
+
+import static org.testng.Assert.assertTrue;
+import static org.testng.Assert.fail;
 
 public class ContactDeletionFromContactPage {
   private WebDriver driver;
@@ -22,7 +42,7 @@ public class ContactDeletionFromContactPage {
     driver = new FirefoxDriver(new FirefoxOptions().setLegacy(true));
     baseUrl = "http://localhost/addressbook/";
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-    driver.get(baseUrl/* + "/addressbook/"*/);
+    driver.get(baseUrl);
     driver.findElement(By.name("user")).clear();
     driver.findElement(By.name("user")).sendKeys("admin");
     driver.findElement(By.name("pass")).clear();
@@ -80,3 +100,5 @@ public class ContactDeletionFromContactPage {
     }
   }
 }
+
+

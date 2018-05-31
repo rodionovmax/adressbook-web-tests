@@ -1,7 +1,7 @@
 package ru.stqa.pft.addressbook.tests;
 
 import org.testng.annotations.Test;
-import ru.stqa.pft.addressbook.GroupData;
+import ru.stqa.pft.addressbook.model.GroupData;
 
 
 public class GroupCreationTests extends TestBase {
@@ -10,7 +10,7 @@ public class GroupCreationTests extends TestBase {
     public void testGroupCreation() {
         app.getNavigationHelper().gotoGroupPage();
         app.getGroupHelper().initGroupCreation();
-        app.getGroupHelper().fillGroupForm(new GroupData("test created for demo", "test promo HEADER", "test promo FOOTER"));
+        app.getGroupHelper().fillGroupForm(new GroupData("test created for demo", "test promo HEADER", null));
         app.getGroupHelper().submitGroupCreation();
         app.getNavigationHelper().gotoGroupPage();
 

@@ -7,10 +7,10 @@ public class ContactChangingDeleting extends TestBase {
    @Test
     public void ContactChangingDeleting() {
 
-        app.chooseContact();
-        app.clickEditContact();
-        app.clickDeleteContact();
-        app.clickHomeContact();
+        app.getContactHelper().chooseContact();
+        app.getContactHelper().clickEditContact();
+        app.getContactHelper().clickDeleteContact();
+        app.getContactHelper().clickHomeContact();
     }
 
 //    private void clickDeleteContact() {

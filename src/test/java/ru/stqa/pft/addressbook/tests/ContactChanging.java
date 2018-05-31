@@ -8,10 +8,10 @@ public class ContactChanging extends TestBase {
     @Test
     public void ContactChanging() {
 
-        app.chooseContact();
-        app.clickEditContact();
-        app.clickSubmitContact();
-        app.clickHomeContact();
+        app.getContactHelper().chooseContact();
+        app.getContactHelper().clickEditContact();
+        app.getContactHelper().clickSubmitContact();
+        app.getContactHelper().clickHomeContact();
     }
 
 
