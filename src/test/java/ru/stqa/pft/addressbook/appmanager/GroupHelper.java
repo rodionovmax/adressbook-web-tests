@@ -44,9 +44,9 @@ public class GroupHelper extends HelperBase {
   }
 
   public void changeGroupForm() {
-    type(By.name("group_name"), "test created for EXTRA 2018");
-    type(By.name("group_header"), "Group for repeaters");
-    type(By.name("group_footer"), "Have a good testing");
+    type(By.name("group_name"), "test 1");
+    type(By.name("group_header"), "test 2");
+    type(By.name("group_footer"), "test 3");
   }
 
   public void clickEditGroup() {
