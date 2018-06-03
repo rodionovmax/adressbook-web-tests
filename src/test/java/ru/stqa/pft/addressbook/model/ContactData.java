@@ -1,5 +1,6 @@
 package ru.stqa.pft.addressbook.model;
 
+// This is a class which contains information about the contact
 public class ContactData {
   private final String firstname;
   private final String lastname;
@@ -10,8 +11,10 @@ public class ContactData {
   private final String email;
   private final String website;
   private final String birth_year;
+  //public String getGroup;
+  private String group;
 
-  public ContactData(String firstname, String lastname, String title, String company_name, String first_address, String homephone, String email, String website, String birth_year) {
+  public ContactData(String firstname, String lastname, String title, String company_name, String first_address, String homephone, String email, String website, String birth_year, String group) { /*Делаем поле в классе который хранит информацию о контакте*/
     this.firstname = firstname;
     this.lastname = lastname;
     this.title = title;
@@ -21,6 +24,7 @@ public class ContactData {
     this.email = email;
     this.website = website;
     this.birth_year = birth_year;
+    this.group = group;
   }
 
   public String getFirstname() {
@@ -57,5 +61,9 @@ public class ContactData {
 
   public String getBirth_year() {
     return birth_year;
+  }
+
+  public String getGroup() { /*Делаем для этого поля метод Getter который позволяет значение поля получить */
+    return group;
   }
 }

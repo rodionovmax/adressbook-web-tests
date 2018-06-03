@@ -8,7 +8,7 @@ import org.testng.annotations.BeforeMethod;
 import ru.stqa.pft.addressbook.appmanager.ApplicationManager;
 public class TestBase /*extends ApplicationManager*/ {
 
-  protected final ApplicationManager app = new ApplicationManager(BrowserType.CHROME);//создается ссылка на новый объект типа ApplicationManager
+  protected final ApplicationManager app = new ApplicationManager(BrowserType.FIREFOX);//создается ссылка на новый объект типа ApplicationManager
 
   @BeforeMethod
   public void setUp() throws Exception {

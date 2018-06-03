@@ -37,7 +37,7 @@ public class ApplicationManager {
     else if (browser.equals(BrowserType.IE)) {
       wd = new InternetExplorerDriver();
     }
-    wd.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+    wd.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
     wd.get("http://localhost/addressbook/");
     groupHelper = new GroupHelper(wd);
     contactHelper = new ContactHelper(wd);//чтобы ContactHelper получил на нее ссылку передаем ее в качестве параметра в конструктор

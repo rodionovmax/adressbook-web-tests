@@ -1,9 +1,14 @@
 package ru.stqa.pft.addressbook.appmanager;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 import ru.stqa.pft.addressbook.model.ContactData;
+
+// This class specially made to declare here methods which will fill out the form
 
 public class ContactHelper extends HelperBase {
 
@@ -41,7 +46,6 @@ public class ContactHelper extends HelperBase {
   }
 
   public void changeFirstAddress() {
-    //wd.findElement(By.name("address")).click();
     type(By.name("address"), "34 Software Testing st, Palo Alto, 02134");
     //wd.findElement(By.name("address")).click();
     //wd.findElement(By.name("address")).clear();
@@ -52,15 +56,12 @@ public class ContactHelper extends HelperBase {
     wd.findElement(By.xpath("//div[@id='content']/form[2]/input[2]")).click();
   }
 
-  public void fillContactForm(ContactData contactData) {
+  public void fillContactForm(ContactData contactData, boolean creation) {
     type(By.name("firstname"), contactData.getFirstname());
     //wd.findElement(By.name("firstname")).click();
     //wd.findElement(By.name("firstname")).clear();
     //wd.findElement(By.name("firstname")).sendKeys(contactData.getFirstname());
     type(By.name("lastname"), contactData.getLastname());
-    //wd.findElement(By.name("lastname")).click();
-    //wd.findElement(By.name("lastname")).clear();
-    //wd.findElement(By.name("lastname")).sendKeys(contactData.getLastname());
     click(By.name("nickname"));
     type(By.name("title"), contactData.getTitle());
     type(By.name("company"), contactData.getCompany_name());
@@ -76,6 +77,15 @@ public class ContactHelper extends HelperBase {
       click(By.xpath("//div[@id='content']/form/select[2]//option[2]"));
     }
     type(By.name("byear"), contactData.getBirth_year());
+
+    // Method for checking if there is drop-down exists
+    // If there is drop-down, so choose value. If there is no value, so skip it and proceed further
+    // Мы сделали метод который позводяет выполнять проверку наличия или отсутствия элемента и теперь пользуемся этим методом для того чтобы заполнять форму которая содержит эелмент выпадающий список или не содержит
+    if (creation) {
+      new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());// method for selecting value from drop-down checkbox for contact creation form
+    } else {
+      Assert.assertFalse(isAlertPresent(By.name("new_group")));
+    }
   }
 
   public void submitContact() {
