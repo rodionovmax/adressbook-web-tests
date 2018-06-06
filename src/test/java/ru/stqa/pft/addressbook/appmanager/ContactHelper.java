@@ -148,6 +148,24 @@ public class ContactHelper extends HelperBase {
     wd.findElement(By.linkText("Last name")).click();
   }
 
+  public void addNewContact() {
+    wd.findElement(By.linkText("add new")).click();
+  }
+
+  public void createContact(ContactData contact) {
+    //app.getNavigationHelper().gotoContact();
+    //clickHomeContact();
+    addNewContact();
+    fillContactForm(new ContactData("Maksim", "Rodionov", "Senior developer", "Company", "1 Foxborough st", "(123)456-5678", "blank@fakemail.com", "blank.automation.com", "1990", null), true);
+    submitContact();
+    clickHomeContact();
+  }
+
+  public boolean isThereAContact() {
+    return isElementPresent(By.name("selected[]"));
+  }
+
+
 
   /*
   public void clickDeleteContactIcon() {

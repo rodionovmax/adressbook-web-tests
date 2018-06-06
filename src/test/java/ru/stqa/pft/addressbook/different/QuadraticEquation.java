@@ -1,4 +1,4 @@
-package ru.stqa.pft.addressbook.lesson3;
+package ru.stqa.pft.addressbook.different;
 
 import java.util.Scanner;
 

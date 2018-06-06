@@ -32,7 +32,7 @@ public class HelperBase {
   public void click(By locator) {
     wd.findElement(locator).click();
   }
-
+  //Method which check that info in the field is the same that we want to enter to this field
   public void type(By locator, String text) {
     click(locator);
     if (text != null){

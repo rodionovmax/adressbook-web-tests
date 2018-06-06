@@ -1,4 +1,4 @@
-package ru.stqa.pft.addressbook.lesson3;
+package ru.stqa.pft.addressbook.different;
 
 public class DescriminantResolving {
   private double a1; //написал класс, обьявил переменные с указанием типа

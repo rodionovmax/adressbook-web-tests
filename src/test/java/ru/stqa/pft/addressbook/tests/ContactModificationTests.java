@@ -21,6 +21,9 @@ public class ContactModificationTests extends TestBase {
     @Test
     public void ContactModificationTests() {
        app.getContactHelper().clickHomeContact();
+       if (! app.getContactHelper().isThereAContact()){
+         app.getContactHelper().createContact(new ContactData("Dominick", "Toreto", " ", "Fast&Furious", "3 Main st", "(123)456-5678", "blank@fakemail.com", "blank.automation.com", "1990", "test 1"));
+       }
        app.getContactHelper().chooseContact();
        app.getContactHelper().clickEditContact();
        app.getContactHelper().fillContactForm(new ContactData("Dominick", "Toreto", " ", "Fast&Furious", "3 Main st", "(123)456-5678", "blank@fakemail.com", "blank.automation.com", "1990", null), false);
